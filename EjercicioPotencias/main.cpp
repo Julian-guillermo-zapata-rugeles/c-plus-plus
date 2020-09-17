@@ -5,13 +5,13 @@ y realiza 1**1 + 2**2 + 3**3 ;
 */
 
 #include <iostream>
-#include <math.h>
+
+
 using namespace std;
 
 int main()
 {
-    int  numeroPrueba = 0 , numeroSeparado = 0;
-    int  suma = 0 ;
+    int  numeroPrueba = 0 , numeroSeparado = 0 ,suma = 0 , potencia;
     bool salida = false ;
 
     cout << "Ingrese un numero para procesar: " ;
@@ -19,9 +19,13 @@ int main()
 
     while (salida==false){
         numeroSeparado =  numeroPrueba % 10   ;
-        cout << numeroSeparado << "^" << numeroSeparado << " = " << pow(numeroSeparado,numeroSeparado)<<endl;
-        numeroPrueba = ceil(numeroPrueba/10) ;
-        suma += pow(numeroSeparado,numeroSeparado);
+        potencia=1;
+        for(int i=0 ; i < numeroSeparado ; i ++ ){
+            potencia*=numeroSeparado;
+        }
+        cout << numeroSeparado << "^" << numeroSeparado << " = " << potencia <<endl;
+        numeroPrueba = numeroPrueba/10;
+        suma += potencia;
         if(numeroPrueba==0){
             salida=true;
         }
